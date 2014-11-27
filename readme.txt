@@ -1,6 +1,6 @@
 === PRyC WP: Add support for admin.css ===
 Contributors: PRyCpl
-Tags: WordPress, Languages, lang
+Tags: WordPress, admin.css, css, style, dashboard, admin
 Requires at least: 3.0.1
 Tested up to: 4.0.1
 Stable tag: trunk
