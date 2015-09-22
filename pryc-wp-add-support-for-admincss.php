@@ -5,7 +5,7 @@
  * Description: Add support for admin.css @ THEME_DIR (normal or child)
  * Author: PRyC
  * Author URI: http://PRyC.pl
- * Version: 1.0.1
+ * Version: 1.1.1
  */
  
  /* Copyright PRyC (email: kontakt@PRyC.pl)
@@ -29,8 +29,19 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 add_action('admin_head', 'pryc_wp_admin_css');
-function pryc_wp_admin_css() {
-  echo '<link rel="stylesheet" href="'.get_stylesheet_directory_uri().'/admin.css" type="text/css" media="all" />';
+
+if ( !function_exists("pryc_wp_admin_css") ) {
+	function pryc_wp_admin_css() {
+		
+		$adminCssFileUri = get_stylesheet_directory_uri().'/admin.css';
+		$adminCssFile = get_stylesheet_directory().'/admin.css';
+		
+		if ( file_exists($adminCssFile) ) {	
+		echo '<link rel="stylesheet" href="'.$adminCssFileUri.'" type="text/css" media="all" />';
+	
+		} else { 
+				$makeFile = fopen($adminCssFile, "w"); }
+	}
 }
 
 /* END */
